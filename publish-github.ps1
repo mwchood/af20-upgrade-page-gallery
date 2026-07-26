@@ -4,12 +4,15 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+if (Get-Variable PSNativeCommandUseErrorActionPreference -ErrorAction SilentlyContinue) {
+  $PSNativeCommandUseErrorActionPreference = $false
+}
 
 if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
   throw "GitHub CLI (gh) is not installed."
 }
 
-gh auth status 2>$null
+gh auth status *> $null
 if ($LASTEXITCODE -ne 0) {
   throw "GitHub CLI is not logged in. Run: gh auth login"
 }
