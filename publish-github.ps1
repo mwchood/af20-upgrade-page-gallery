@@ -12,7 +12,7 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
   throw "GitHub CLI (gh) is not installed."
 }
 
-gh auth status *> $null
+cmd /c "gh auth status >nul 2>nul"
 if ($LASTEXITCODE -ne 0) {
   throw "GitHub CLI is not logged in. Run: gh auth login"
 }
