@@ -1,0 +1,11 @@
+af20-tft-prototype/node_modules/
+af20-tft-prototype/dist/
+
+# Local-only/generated working assets
+output/
+archive/
+whiteboard_latest.png
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
