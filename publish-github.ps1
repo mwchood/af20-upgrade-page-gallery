@@ -23,7 +23,7 @@ $owner = gh api user --jq ".login"
 
 git branch -M main
 
-$remote = git remote get-url origin 2>$null
+cmd /c "git remote get-url origin >nul 2>nul"
 if ($LASTEXITCODE -ne 0) {
   gh repo create $RepoName $visibility --source . --remote origin --push
 } else {
