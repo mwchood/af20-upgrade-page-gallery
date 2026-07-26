@@ -14,7 +14,8 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
 
 cmd /c "gh auth status >nul 2>nul"
 if ($LASTEXITCODE -ne 0) {
-  throw "GitHub CLI is not logged in. Run: gh auth login"
+  Write-Output "GitHub CLI is not logged in. Run: gh auth login"
+  exit 1
 }
 
 $visibility = if ($Public) { "--public" } else { "--private" }
